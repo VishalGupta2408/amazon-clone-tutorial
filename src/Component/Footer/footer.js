@@ -1,14 +1,20 @@
-import React from 'react'
+import React from 'react';
 import './footer.css';
-import amazonLogo from '../../Assets/amazonLogo.png'
+
 const Footer = () => {
+    const amazonLogo = 'https://pngimg.com/uploads/amazon/amazon_PNG11.png';
+
     return (
         <div className="footer">
             <div className="footerContent">
                 <div className="footerCont1">
                     <div className="contentFooterTitle">Get To Know Us</div>
-                    {/* please watch the video for code */}
-
+                    <div className="contentFooterSubTitlediv">
+                        <div className="contentFooterSubTitleCont">About Us</div>
+                        <div className="contentFooterSubTitleCont">Careers</div>
+                        <div className="contentFooterSubTitleCont">Press Releases</div>
+                        <div className="contentFooterSubTitleCont">Amazon Science</div>
+                    </div>
                 </div>
                 <div className="footerCont1">
                     <div className="contentFooterTitle">Connect With Us</div>
@@ -20,20 +26,34 @@ const Footer = () => {
                 </div>
 
                 <div className="footerCont1">
-                    <div className="contentFooterTitle">Make Money With US</div>
-                    {/* please watch the video for code */}
+                    <div className="contentFooterTitle">Make Money With Us</div>
+                    <div className="contentFooterSubTitlediv">
+                        <div className="contentFooterSubTitleCont">Sell on Amazon</div>
+                        <div className="contentFooterSubTitleCont">Sell under Amazon Accelerator</div>
+                        <div className="contentFooterSubTitleCont">Protect and Build Your Brand</div>
+                        <div className="contentFooterSubTitleCont">Amazon Global Selling</div>
+                        <div className="contentFooterSubTitleCont">Become an Affiliate</div>
+                        <div className="contentFooterSubTitleCont">Fulfilment by Amazon</div>
+                    </div>
                 </div>
                 
                 <div className="footerCont1">
-                    <div className="contentFooterTitle">Lets Us Help You</div>
-                    {/* please watch the video for code */}
+                    <div className="contentFooterTitle">Let Us Help You</div>
+                    <div className="contentFooterSubTitlediv">
+                        <div className="contentFooterSubTitleCont">COVID-19 and Amazon</div>
+                        <div className="contentFooterSubTitleCont">Your Account</div>
+                        <div className="contentFooterSubTitleCont">Returns Centre</div>
+                        <div className="contentFooterSubTitleCont">100% Purchase Protection</div>
+                        <div className="contentFooterSubTitleCont">Amazon App Download</div>
+                        <div className="contentFooterSubTitleCont">Help</div>
+                    </div>
                 </div>
             </div>
             <div className="amazonImg">
-                <img className='amazonImgFooter' src={amazonLogo} />
+                <img className='amazonImgFooter' src={amazonLogo} alt='amazonLogo' />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
