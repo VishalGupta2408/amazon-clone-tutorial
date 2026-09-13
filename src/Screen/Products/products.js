@@ -1,24 +1,23 @@
-import React from 'react'
+import React from 'react';
 import './products.css';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import productDetail from './products.json';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions/actions';
-import { toast,ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const Products = () => {
-
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart.items);
-    const handleAddToCart=(item)=>{
 
+    const handleAddToCart = (item) => {
         toast.success("Added To Cart", {
-            position:"bottom-right"
-          })
-          
+            position: "bottom-right"
+        });
         dispatch(addToCart(item));
-    }
+    };
+
     return (
         <div className="productPage">
             <div className="productTopBanner">
@@ -48,7 +47,6 @@ const Products = () => {
                         <div className="ratingLeftBox">
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
-
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
@@ -58,7 +56,6 @@ const Products = () => {
                         <div className="ratingLeftBox">
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
-
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
@@ -68,7 +65,6 @@ const Products = () => {
                         <div className="ratingLeftBox">
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
-
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
@@ -78,28 +74,11 @@ const Products = () => {
                         <div className="ratingLeftBox">
                             <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
-
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
                             <div className="andUp"> & Up</div>
                         </div>
-
-                        <div className="productsPageMainLeftCategoryContentSub">Amazon Prime</div>
-                        <div className="productsPageMainLeftCategoryContentSub">Average Customer Review</div>
-
-                        <div className="productsPageMainLeftCategoryContentSub">Amazon Prime</div>
-                        <div className="productsPageMainLeftCategoryContentSub">Average Customer Review</div>
-
-                        <div className="productsPageMainLeftCategoryContentSub">Amazon Prime</div>
-                        <div className="productsPageMainLeftCategoryContentSub">Average Customer Review</div>
-
-                        <div className="productsPageMainLeftCategoryContentSub">Amazon Prime</div>
-                        <div className="productsPageMainLeftCategoryContentSub">Average Customer Review</div>
-
-                        <div className="productsPageMainLeftCategoryContentSub">Amazon Prime</div>
-                        <div className="productsPageMainLeftCategoryContentSub">Average Customer Review</div>
-
                     </div>
                 </div>
 
@@ -109,24 +88,42 @@ const Products = () => {
                     </div>
 
                     <div className="itemsImageProductPage">
-
                         {
                             productDetail.product.map((item, index) => {
                                 return (
-                                    {/* please watch the video for code */}
+                                    <div className="itemsImageProductPageOne" key={item.id || index}>
+                                        <div className="imgBloCkitemsImageProductPageOne">
+                                            <img className="productImageProduct" src={item.imageUrl} alt={item.name} />
+                                        </div>
+                                        <div className="productNameProduc">
+                                            <div>{item.name}</div>
+                                            <div className="productNameProductRating">
+                                                <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
+                                                <StarRateIcon sx={{ fontSize: "20px", color: "#febd69" }} />
+                                                <StarOutlineIcon sx={{ fontSize: "20px", color: "#febd69" }} />
+                                            </div>
+                                            <div className="priceProductDetailPage">
+                                                <div className="currencyText">Rs</div>
+                                                <div className="rateHomeDetail">{item.price}</div>
+                                            </div>
+                                            <div className="offProductPage">Up to 50% off</div>
+                                            <div className="freeDeliveryHomepage">Free Delivery by Amazon</div>
+                                            <div className="addtobasketBtn" onClick={() => handleAddToCart(item)}>
+                                                Add to Cart
+                                            </div>
+                                        </div>
+                                    </div>
                                 );
-
                             })
                         }
-
-
                     </div>
-
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
-    )
-}
+    );
+};
 
-export default Products
+export default Products;
